@@ -1,0 +1,55 @@
+<!-- <div layout="row" layout-fill> -->
+  <md-content>
+ 
+    <md-toolbar md-scroll-shrink ng-if="true">
+    <div class="md-toolbar-tools">
+      <div ncy-breadcrumb></div>
+    </div>
+  </md-toolbar>
+
+  <form name="patientForm">
+   <div layout-gt-sm="row" >
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Vorname</label>
+            <input ng-model="vm.patient.firstName">
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Nachname</label>
+            <input ng-model="vm.patient.lastName">
+          </md-input-container>          
+    </div>    
+    <div layout-gt-sm="row" >
+      <md-input-container  flex-gt-sm>
+        <label>Strasse</label>
+        <input ng-model="vm.patient.street">
+      </md-input-container>
+      <md-input-container class="md-block small" flex-gt-sm>
+        <label>Plz</label>
+        <input name="postalCode" ng-model="vm.patient.zipCode" required ng-pattern="/^[0-9]{5}$/">
+            <div ng-messages="patientForm.postalCode.$error" role="alert" multiple>              
+              <div ng-message="pattern" class="my-message">Keine Gültige Plz</div>              
+            </div>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Ort</label>
+        <input ng-model="vm.patient.city">
+      </md-input-container>
+    </div>
+   <div layout-gt-sm="row"  class="md-inline-form">
+      <md-input-container  >
+        <label>Verordner</label>
+        <md-select ng-model="vm.patient.doctor">
+          <md-option ng-repeat="doc in vm.doctors" value="{{doc.id}}">
+            {{doc.name}}
+          </md-option>
+        </md-select>
+
+      </md-input-container>
+       <md-datepicker ng-model="vm.patient.birthdate" md-placeholder="Geburtsdatum"></md-datepicker>
+   </div>
+
+  </form>
+
+
+  </md-content>
+<!-- </div> -->

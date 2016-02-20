@@ -98,6 +98,24 @@ md-sidenav.sidenav {
   min-width: 90px;
 }
 
+// Standard überschreiben
+md-input-container {
+  //line-height:12px;
+  padding-bottom:5px;
+  margin-bottom:0px;
+  margin-top:16px;
+}
+
+md-input-container .md-errors-spacer
+{
+ min-height:0px; 
+}
+
+.small {
+  width:70px;
+}
+
+
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically

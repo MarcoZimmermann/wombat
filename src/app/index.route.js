@@ -10,7 +10,7 @@
     $stateProvider
       .state('home', {
         url: '/',
-       views: {
+        views: {
           "sideView" : {
             templateUrl: 'app/main/side.html'            
           },
@@ -19,7 +19,22 @@
             controller: 'MainController',
             controllerAs: 'main'
           }
+        },
+        
+        ncyBreadcrumb: {
+          label: 'Home'
         }        
+      })      
+
+      .state('product', {
+        url: '/product',
+        views: {
+          'content': {
+            templateUrl: 'app/main/main.html',
+            controller: 'MainController',
+            controllerAs: 'main'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');
