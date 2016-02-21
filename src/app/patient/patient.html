@@ -1,55 +1,135 @@
-<!-- <div layout="row" layout-fill> -->
-  <md-content>
- 
-    <md-toolbar md-scroll-shrink ng-if="true">
+ <md-toolbar md-scroll-shrink ng-if="true">
     <div class="md-toolbar-tools">
       <div ncy-breadcrumb></div>
     </div>
   </md-toolbar>
 
-  <form name="patientForm">
-   <div layout-gt-sm="row" >
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Vorname</label>
-            <input ng-model="vm.patient.firstName">
-          </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Nachname</label>
-            <input ng-model="vm.patient.lastName">
-          </md-input-container>          
-    </div>    
-    <div layout-gt-sm="row" >
-      <md-input-container  flex-gt-sm>
-        <label>Strasse</label>
-        <input ng-model="vm.patient.street">
-      </md-input-container>
-      <md-input-container class="md-block small" flex-gt-sm>
-        <label>Plz</label>
-        <input name="postalCode" ng-model="vm.patient.zipCode" required ng-pattern="/^[0-9]{5}$/">
-            <div ng-messages="patientForm.postalCode.$error" role="alert" multiple>              
-              <div ng-message="pattern" class="my-message">Keine Gültige Plz</div>              
-            </div>
-      </md-input-container>
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>Ort</label>
-        <input ng-model="vm.patient.city">
-      </md-input-container>
+ <div layout="row" >
+  
+ 
+  <div flex="40" layout-margin>
+   <form name="patientForm">
+   <!--Adresse -->
+   <md-card layout-padding>
+    <md-card-title>Adresse</md-card-title>
+    <!--  <md-divider ></md-divider> -->
+     <div layout-gt-sm="row" >
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Vorname</label>
+              <input ng-model="vm.patient.firstName">
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Nachname</label>
+              <input ng-model="vm.patient.lastName">
+            </md-input-container>          
+      </div>    
+      <div layout-gt-sm="row" >
+        <md-input-container  flex-gt-sm>
+          <label>Strasse</label>
+          <input ng-model="vm.patient.street">
+        </md-input-container>
+        <md-input-container class="md-block small" flex-gt-sm>
+          <label>Plz</label>
+          <input name="postalCode" ng-model="vm.patient.zipCode" required ng-pattern="/^[0-9]{5}$/">
+              <div ng-messages="patientForm.postalCode.$error" role="alert" multiple>              
+                <div ng-message="pattern" class="my-message">Keine Gültige Plz</div>              
+              </div>
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Ort</label>
+          <input ng-model="vm.patient.city">
+        </md-input-container>
+      </div>
+      <div layout-gt-sm="row" >
+        <md-input-container  flex-gt-sm>
+          <label>Telefon</label>
+          <input ng-model="vm.patient.phone">
+        </md-input-container>          
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Sonstiges</label>
+          <input ng-model="vm.patient.additional">
+        </md-input-container>
+      </div>
+
+    <div layout="row" layout-align="start center">
+      <label>Geburtsdatum</label>      
+      <md-datepicker ng-model="vm.patient.copaymentStart" md-placeholder="Befreiung von"></md-datepicker>
     </div>
-   <div layout-gt-sm="row"  class="md-inline-form">
-      <md-input-container  >
+  </md-card>
+
+  <!--Zusatzdaten -->
+  <md-card layout-padding> 
+    <!--KK und Verordner -->   
+    <div layout-gt-sm="row" >
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Krankenkasse</label>
+        <md-select ng-model="vm.patient.insurance">
+          <md-option ng-repeat="insurance in vm.insurances" value="{{insurance.id}}">
+            {{insurance.name}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+      
+      <md-input-container class="md-block" flex-gt-sm>
         <label>Verordner</label>
         <md-select ng-model="vm.patient.doctor">
           <md-option ng-repeat="doc in vm.doctors" value="{{doc.id}}">
             {{doc.name}}
           </md-option>
         </md-select>
+      </md-input-container>          
+    </div>    
 
-      </md-input-container>
-       <md-datepicker ng-model="vm.patient.birthdate" md-placeholder="Geburtsdatum"></md-datepicker>
-   </div>
+    <!-- Zuzahlungsbefreihung -->
+    <div layout="column">
+      <label>Befreiung</label>
+      <div class="md-inline-form">    
+        <md-datepicker ng-model="vm.patient.copaymentStart" md-placeholder="Befreiung von"></md-datepicker>
+        <span> &nbsp;bis</span>
+        <md-datepicker ng-model="vm.patient.copaymentEnd" md-placeholder="Befreiung bis"></md-datepicker>      
+      </div>
+    </div>
+  </md-card>
+  
 
+    <!-- <div layout-gt-sm="row"  class="md-inline-form"> -->
+    
+
+
+    <md-input-container  >
+           
+
+          </md-input-container>
   </form>
 
+  </div>
 
+  <div  flex >
+  <div ng-cloak>
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="one">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Tab One</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="two">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Tab Two</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam conec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+          <
+      </md-tab>
+      <md-tab label="three">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Tab Three</h1>
+          <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+        </md-content>
+      </md-tab>
+    </md-tabs>
   </md-content>
-<!-- </div> -->
+</div>
+  </div>
+
+  
+</div>
