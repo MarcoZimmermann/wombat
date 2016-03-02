@@ -1,24 +1,62 @@
-<div ng-cloak>
+  <div ng-cloak>
   <md-content>
-    <md-tabs md-dynamic-height md-border-bottom>
-      <md-tab label="one">
+    <md-tabs md-dynamic-height md-border-bottom md-selected="vm.selectedIndex" >
+      <md-tab label="one" ui-sref="product.tab1">
         <md-content class="md-padding">
-          <h1 class="md-display-2">Tab One</h1>
+          <h1 class="md-display-2" ui-sref="tabs.tab1">Tab One</h1>
+          <div ui-view="tabContent"></div>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
         </md-content>
       </md-tab>
-      <md-tab label="two">
+      <md-tab label="two" ui-sref="product.tab2">
         <md-content class="md-padding">
-          <h1 class="md-display-2">Tab Two</h1>
+          <h1 class="md-display-2" >Tab Two</h1>
+        <div ui-view="tabContent"></div>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam conec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
           <
       </md-tab>
       <md-tab label="three">
         <md-content class="md-padding">
           <h1 class="md-display-2">Tab Three</h1>
+          <div ui-view="tabContent"></div>
           <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
         </md-content>
       </md-tab>
     </md-tabs>
+    
   </md-content>
 </div>
+
+<!-- <md-tabs dynamic-height md-border-bottom>  
+    <md-tab>
+      <md-tab-label>
+        <span ui-sref="product.tab1">Tab 1</span>
+      </md-tab-label>
+    </md-tab>
+    <md-tab>
+      <md-tab-label>
+        <span ui-sref="product.tab2">Tab 2</span>      
+      </md-tab-label>
+    </md-tab>
+</md-tabs>
+<div ui-view="tabContent"></div> -->
+
+<!-- <md-tabs dynamic-height md-border-bottom>
+  
+    <md-tab>
+      <md-tab-label>
+        <span ui-sref="tabs.tab1">Tab 1</span>
+      </md-tab-label>
+    </md-tab>
+
+
+    <md-tab>
+      <md-tab-label>
+        <span ui-sref="tabs.tab2">Tab 2</span>
+      
+      </md-tab-label>
+    </md-tab>
+
+</md-tabs>
+<div ui-view="tabContent"></div>
+ -->

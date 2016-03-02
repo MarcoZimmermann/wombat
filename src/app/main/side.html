@@ -2,7 +2,7 @@
     <md-list>
 
         <md-list-item >
-            <md-button href="#/" class="md-icon-button md-primary">
+            <md-button ui-sref="home" ui-sref-active="md-primary" class="md-icon-button">
             <i class="fa fa-home fa-2x"></i>
             <!-- <i class="material-icons">home</i> -->
             </md-button>
@@ -10,15 +10,15 @@
 
 
         <md-list-item >
-            <md-button href="#/patient" title="Patienten" class="md-icon-button md-primary"><i class="fa fa-users fa-2x"></i></md-button>
+            <md-button ui-sref="patientEdit({patientId:5})" ui-sref-active="md-primary" title="Patienten" class="md-icon-button"><i class="fa fa-users fa-2x"></i></md-button>
         </md-list-item>
 
         <!-- List item #2 -->
         <md-list-item >
-            <md-button href="#/product" class="md-icon-button md-primary" 
+            <md-button ui-sref="product.tab1" ui-sref-active="md-primary" class="md-icon-button" 
                 title="Produkte">
                 <i class="fa fa-industry fa-2x"></i> 
-            </md-button>
+            </md-button>          
         </md-list-item>
 
       </md-list>

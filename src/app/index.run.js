@@ -6,7 +6,15 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log) {
+  function runBlock($rootScope,$log) {
+
+
+        $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams, options) {
+        	//event.preventDefault();
+        	$log.debug(toState);
+       	          
+        });
+
 
     $log.debug('runBlock end');
   }

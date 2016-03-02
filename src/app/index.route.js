@@ -7,6 +7,7 @@
 
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
+    
     $stateProvider
       .state('home', {
         url: '/',
@@ -19,23 +20,51 @@
             controller: 'MainController',
             controllerAs: 'main'
           }
-        },
-        
+        },        
         ncyBreadcrumb: {
           label: 'Home'
         }        
       })      
+ 
 
+   
       .state('product', {
         url: '/product',
+          abstract: true,      
         views: {
-          'content': {
+          "sideView" : {
+            templateUrl: 'app/main/side.html'            
+          },
+         'content': {
             templateUrl: 'app/product/product.html',
             controller: 'ProductController',
-            controllerAs: 'vm'
+            controllerAs: 'vm'             
           }
+        }        
+      })
+
+      .state('product.tab1', {
+        url: '/tab1',
+          
+        views: {
+           'tabContent@product': {
+                template: 'Tab12',
+                controller: 'ProductController',
+                controllerAs: 'vm'
+              }            
         }
-      });
+      })
+      .state('product.tab2', {
+        url: '/tab2',         
+        views: {         
+          'tabContent@product': {
+                template: 'Tab13',
+                controller: 'ProductController',
+                controllerAs: 'vm'
+              },
+        }
+      })
+;
 
     $urlRouterProvider.otherwise('/');
   }

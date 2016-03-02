@@ -6,11 +6,21 @@
     .controller('PatientController', PatientController);
 
   /** @ngInject */
-  function PatientController() {
+  function PatientController($scope,$location, $state, $stateParams) {
     var vm = this;
+    vm.selectedTabIndex = 1;
 
+    $scope.$on('$destroy', function(a,b,c,d)
+    {
+        var z=0;
+    });
 
     tempInit(vm);
+
+    vm.onTest = function() {
+      $scope.patientForm.$setPristine();
+
+    };
 
   } // Controller
 
