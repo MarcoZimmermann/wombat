@@ -6,7 +6,7 @@
     .controller('ProductController', ProductController);
 
   /** @ngInject */
-  function ProductController($scope, $state) {
+  function ProductController() {
     var vm = this;
 
        vm.products = [];

@@ -61,7 +61,7 @@
                 template: 'Tab13',
                 controller: 'ProductController',
                 controllerAs: 'vm'
-              },
+              }
         }
       })
 ;

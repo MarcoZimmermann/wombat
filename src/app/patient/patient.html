@@ -1,124 +1,32 @@
- <md-toolbar md-scroll-shrink ng-if="true">
-    <div class="md-toolbar-tools">
-      <div ncy-breadcrumb></div>
-    </div>
-  </md-toolbar>
-
- <div layout="row" >
-  
- 
-
-  <div  flex >
-
-  <div ng-cloak>
-  <md-content>
-    <md-tabs md-dynamic-height md-border-bottom md-selected="vm.selectedTabIndex">
-      <md-tab label="Stammdaten">
-        <md-content class="md-padding">
-             <div flex="40" layout-margin>
-               <form name="patientForm">
-               <md-button ng-click="vm.onTest()">Test</md-button> 
-               <!--Adresse -->
-               <md-card layout-padding>
-                <md-card-title>Adresse</md-card-title>
-                <!--  <md-divider ></md-divider> -->
-                 <div layout-gt-sm="row" >
-                        <md-input-container class="md-block" flex-gt-sm>
-                          <label>Vorname</label>
-                          <input ng-model="vm.patient.firstName">
-                        </md-input-container>
-                        <md-input-container class="md-block" flex-gt-sm>
-                          <label>Nachname</label>
-                          <input ng-model="vm.patient.lastName">
-                        </md-input-container>          
-                  </div>    
-                  <div layout-gt-sm="row" >
-                    <md-input-container  flex-gt-sm>
-                      <label>Strasse</label>
-                      <input ng-model="vm.patient.street">
-                    </md-input-container>
-                    <md-input-container class="md-block small" flex-gt-sm>
-                      <label>Plz</label>
-                      <input name="postalCode" ng-model="vm.patient.zipCode" required ng-pattern="/^[0-9]{5}$/">
-                          <div ng-messages="patientForm.postalCode.$error" role="alert" multiple>              
-                            <div ng-message="pattern" class="my-message">Keine Gültige Plz</div>              
-                          </div>
-                    </md-input-container>
-                    <md-input-container class="md-block" flex-gt-sm>
-                      <label>Ort</label>
-                      <input ng-model="vm.patient.city">
-                    </md-input-container>
-                  </div>
-                  <div layout-gt-sm="row" >
-                    <md-input-container  flex-gt-sm>
-                      <label>Telefon</label>
-                      <input ng-model="vm.patient.phone">
-                    </md-input-container>          
-                    <md-input-container class="md-block" flex-gt-sm>
-                      <label>Sonstiges</label>
-                      <input ng-model="vm.patient.additional">
-                    </md-input-container>
-                  </div>
-
-                <div layout="row" layout-align="start center">
-                  <label>Geburtsdatum</label>      
-                  <md-datepicker ng-model="vm.patient.copaymentStart" md-placeholder="Befreiung von"></md-datepicker>
-                </div>
-              </md-card>
-
-              <!--Zusatzdaten -->
-              <md-card layout-padding> 
-                <!--KK und Verordner -->   
-                <div layout-gt-sm="row" >
-                  <md-input-container class="md-block" flex-gt-sm>
-                    <label>Krankenkasse</label>
-                    <md-select ng-model="vm.patient.insurance">
-                      <md-option ng-repeat="insurance in vm.insurances" value="{{insurance.id}}">
-                        {{insurance.name}}
-                      </md-option>
-                    </md-select>
-                  </md-input-container>
-                  
-                  <md-input-container class="md-block" flex-gt-sm>
-                    <label>Verordner</label>
-                    <md-select ng-model="vm.patient.doctor">
-                      <md-option ng-repeat="doc in vm.doctors" value="{{doc.id}}">
-                        {{doc.name}}
-                      </md-option>
-                    </md-select>
-                  </md-input-container>          
-                </div>    
-
-                <!-- Zuzahlungsbefreihung -->
-                <div layout="column">
-                  <label>Befreiung</label>
-                  <div class="md-inline-form">    
-                    <md-datepicker ng-model="vm.patient.copaymentStart" md-placeholder="Befreiung von"></md-datepicker>
-                    <span> &nbsp;bis</span>
-                    <md-datepicker ng-model="vm.patient.copaymentEnd" md-placeholder="Befreiung bis"></md-datepicker>      
-                  </div>
-                </div>
-              </md-card>  
-              </form>
-              </div>
-         
-        </md-content>
-      </md-tab>
-      <md-tab label="Krankendaten" href="/product">
-        <md-content class="md-padding">
-          <div ng-include="'app/patient/medicalrecords.html'"></div>
-         </md-content>
-      </md-tab>
-      <md-tab label="three">
-        <md-content class="md-padding">
-          
-          
-        </md-content>
-      </md-tab>
-    </md-tabs>
-  </md-content>
-</div>
+<md-toolbar md-scroll-shrink ng-if="true">
+  <div class="md-toolbar-tools">
+    <div ncy-breadcrumb></div>
   </div>
+</md-toolbar>
 
-  
+<div layout="row" >
+  <div  flex >
+    <div ng-cloak>
+      <md-content>
+        <md-tabs md-dynamic-height md-border-bottom md-selected="vm.selectedTabIndex">
+          <md-tab label="Stammdaten">
+            <md-content class="md-padding">
+              <div ng-include="'app/patient/part/basicdata.html'"></div>
+             
+            </md-content>
+          </md-tab>
+          <md-tab label="Krankendaten" href="/product">
+            <md-content class="md-padding">
+              <div ng-include="'app/patient/part/medicalrecords.html'"></div>
+             </md-content>
+          </md-tab>
+          <md-tab label="three">
+            <md-content class="md-padding">              
+              
+            </md-content>
+          </md-tab>
+        </md-tabs>
+      </md-content>
+    </div>
+  </div>
 </div>
