@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastrConfig, $breadcrumbProvider) {
+  function config($logProvider, toastrConfig, $mdThemingProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -17,11 +17,11 @@
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = true;
 
-
-    $breadcrumbProvider.setOptions({
-      //template: 'bootstrap2'
-      templateUrl: 'app/templates/breadcrumb.html'
-    });
+    $mdThemingProvider.theme('default')
+      .primaryPalette('teal')
+     .accentPalette('deep-orange');
+    
+    
   }
 
 })();

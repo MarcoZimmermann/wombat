@@ -10,7 +10,7 @@
     var vm = this;
     vm.selectedTabIndex = 0;
  
-
+  
     tempInit(vm);
 
 
@@ -26,7 +26,7 @@
       'city': "Musterhausen",
       birthdate: new Date('4/13/1982'),
       doctor: 2,
-      test: '',
+      test: null,
       phone: '',
       additional:'',
       insurance: 3,
@@ -40,7 +40,7 @@
     vm.doctors = [];
 
     vm.docs = {
-      searchText : "",
+      searchText : null,
       queryDocs : queryDocs
     };
 
@@ -48,7 +48,7 @@
     function queryDocs(query) {
       var results = query ? vm.doctors.filter( function filterFn(doc) {
         return (doc.name.indexOf(query) >= 0);
-      } ) : vm.doctors;
+      } ) : vm.doctors.slice(0,25);
 
       return results;
     }

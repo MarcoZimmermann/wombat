@@ -73,7 +73,7 @@
           </md-select>
         </md-input-container>
         
-        <!-- <md-input-container class="md-block" flex-gt-sm> -->
+        
         <!--   <label>Verordner</label> -->
          <!--  <md-select ng-model="vm.patient.doctor">
             <md-option ng-repeat="doc in vm.doctors" value="{{doc.id}}">
@@ -81,19 +81,22 @@
             </md-option>
           </md-select> -->
           
-        <md-autocomplete 
+        <md-autocomplete flex
             md-selected-item="vm.patient.test"
+            md-no-cache="true"
             md-items="doc in vm.docs.queryDocs(vm.docs.searchText)"
             md-search-text="vm.docs.searchText"
             md-item-text="doc.name"
             md-floating-label="Verordner" 
-            
             md-min-length="0">
             <md-item-template>
-              <span md-highlight-text="vm.docs.searchText">{{doc.name}}</span>
+             <div class="jumbotron">
+                <span md-highlight-text="vm.docs.searchText">{{doc.name}}</span>
+              </div>
+             
             </md-item-template>
           </md-autocomplete>
-        <!-- </md-input-container>           -->
+        
       </div>    
 
       <!-- Zuzahlungsbefreihung -->
