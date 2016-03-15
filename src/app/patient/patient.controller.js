@@ -8,7 +8,7 @@
   /** @ngInject */
   function PatientController() {
     var vm = this;
-    vm.selectedTabIndex = 0;
+    vm.selectedTabIndex = 1;
  
   
     tempInit(vm);
@@ -19,7 +19,7 @@
 
   function tempInit(vm) {
     vm.patient = {
-      'firstName' : 'Max',
+      'firstName' : moment.localeData().longDateFormat('L'),
       'lastName' : 'Mustermann',
       'street': 'Muster Straße',      
       'zipCode': '12345',
@@ -33,7 +33,15 @@
       copaymentStart:new Date(),
       copaymentEnd:new Date(),
       hasPatientDeclarationSigned:true,
-      firstSupplyment:new Date()
+      firstSupplyment:new Date(),
+      'supplymentTypes' : [
+        { supplier: 'GHD', supplymentType : 'Privat', anlage4: true, durationPrescriptionStart: new Date(), durationPrescriptionEnd: new Date()
+          , prescriptionDate: new Date() },
+        { supplier: 'Sanlog', supplymentType : 'Privat', anlage4: false, durationPrescriptionStart: new Date(), durationPrescriptionEnd: new Date()
+          , prescriptionDate: new Date() },
+        { supplier: 'Schug', supplymentType : 'Privat', anlage4: true, durationPrescriptionStart: new Date(), durationPrescriptionEnd: new Date()
+          , prescriptionDate: new Date() }
+      ]
     };
     vm.patient.copaymentEnd.setMonth(vm.patient.copaymentStart.getMonth()+1);
       
@@ -53,21 +61,22 @@
       return results;
     }
 
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 5; i++) {
           vm.doctors.push({id: i, name: 'Verordner '+(i+1)});
     }
 
 
+    vm.suppliers = ['GHD', 'Sanlog', 'Schug'];
+    vm.supplymentTypes = ['Privat', 'Zeuch', 'Komisch'];
 
-     vm.insurances = [
-       { id: 1, name: 'AOK'},
-       { id: 2, name: 'BKK Deutsche'},
-       { id: 3, name: 'DAK'},
-       { id: 4, name: 'BKK Siemens'},
-       { id: 5, name: 'Privat'},
-       { id: 6, name: 'Selbstzahler'}
-       
-     ]
+    vm.insurances = [
+     { id: 1, name: 'AOK'},
+     { id: 2, name: 'BKK Deutsche'},
+     { id: 3, name: 'DAK'},
+     { id: 4, name: 'BKK Siemens'},
+     { id: 5, name: 'Privat'},
+     { id: 6, name: 'Selbstzahler'}
+    ]
 
      vm.insurances.sort(sortPredicate);
   }

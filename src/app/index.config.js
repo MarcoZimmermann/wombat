@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastrConfig, $mdThemingProvider) {
+  function config($logProvider, toastrConfig, $mdThemingProvider, $mdDateLocaleProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -21,7 +21,18 @@
       .primaryPalette('teal')
      .accentPalette('deep-orange');
     
-    
+    moment.locale('de');
+    $mdDateLocaleProvider.firstDayOfWeek = 1;
+    $mdDateLocaleProvider.formatDate = function(date) {
+      return moment(date).format('L');
+    };
+
+    $mdDateLocaleProvider.parseDate = function(dateString) {
+      //var m = moment(dateString, 'L', true);
+      var m = moment(dateString, ['L', 'DD.M.YYYY'], true);
+
+      return m.isValid() ? m.toDate() : new Date(NaN);
+    };
   }
 
 })();

@@ -1,4 +1,4 @@
-<div flex="40" >
+<div flex class="stammdaten">
   <form name="patientForm">
   <div layout="row" >
     <div flex>
@@ -14,8 +14,9 @@
 
     
      <!--Adresse -->
-     <md-card layout-padding>
+     <md-card layout-padding adresse>
       <md-card-title>Adresse</md-card-title>
+      <md-card-content>
         <div layout-gt-sm="row" >
           <md-input-container class="md-block" flex-gt-sm>
             <label>Vorname</label>
@@ -58,6 +59,7 @@
         <label>Geburtsdatum</label>      
         <md-datepicker ng-model="vm.patient.copaymentStart" md-placeholder="Befreiung von"></md-datepicker>
       </div>
+      <md-card-content>
     </md-card>
 
     <!--Zusatzdaten -->

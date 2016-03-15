@@ -25,7 +25,14 @@ exports.paths = {
  */
 exports.wiredep = {
   exclude: [/jquery/],
-  directory: 'bower_components'
+  directory: './bower_components',
+   onPathInjected: function(fileObject) {
+    gutil.log(gutil.colors.yellow('[INJECTED]'),fileObject.path);
+  },
+
+  onError: function(err) {
+    gutil.log(gutil.colors.red('[ERROR]'), err);
+  },
 };
 
 /**

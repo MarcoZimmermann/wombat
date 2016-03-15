@@ -123,9 +123,38 @@ md-list-item {
     color: rgba(0,0,0,0.54);
   }
 }
-.small {
-  width:70px;
+
+
+.stammdaten {
+  md-input-container {
+    max-width: 250px;
+    margin-right: 10px;
+  }
+  .small {
+    max-width:70px;
+  }
 }
+
+.DauerVerordnugnsList {    
+  md-checkbox[no-space] {
+    margin-right: 0px;
+  }  
+
+  md-select {
+    min-width: 150px;
+   // margin-right: 5px;
+  }
+
+  table{
+      table-layout: fixed;
+  }
+
+  th, td {
+      overflow: hidden;
+      width: 170px;
+  }
+}
+
 
 
 /**
