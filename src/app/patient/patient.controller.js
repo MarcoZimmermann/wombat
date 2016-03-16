@@ -9,17 +9,24 @@
   function PatientController() {
     var vm = this;
     vm.selectedTabIndex = 1;
- 
-  
+    
+    vm.addSupplymentType = function() {
+      vm.patient.supplymentTypes.push(
+        { supplier: null, supplymentType : null, anlage4: false, durationPrescriptionStart: new Date(), durationPrescriptionEnd: new Date()
+          , prescriptionDate: new Date() });
+    };
+
     tempInit(vm);
 
 
   } // Controller
 
 
+
+
   function tempInit(vm) {
     vm.patient = {
-      'firstName' : moment.localeData().longDateFormat('L'),
+      'firstName' : 'Max',
       'lastName' : 'Mustermann',
       'street': 'Muster Straße',      
       'zipCode': '12345',
