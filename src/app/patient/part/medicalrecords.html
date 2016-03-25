@@ -5,7 +5,7 @@
 </md-input-container>
 
 
- <md-card layout-padding class="DauerVerordnugnsList" >
+<!--  <md-card layout-padding class="DauerVerordnugnsList" >
  
  <div layout="row" layout-align="start center" >
   <md-card-title> Versorgungsarten / Dauerverordnungen </md-card-title>
@@ -52,20 +52,18 @@
  		</tr>
  		</table>
 	</md-card>
-
-
+ -->
 
 <div layout="row" layout-padding  class="DauerVerordnugnsList">
-<md-whiteframe class="md-whiteframe-4dp">
- <!-- <md-card layout-padding class="DauerVerordnugnsList" style="min-width: 1020px"> -->
- 
+<md-whiteframe class="md-whiteframe-4dp" layout="column" >
  <div layout="row" layout-align="start center" >
-  <md-card-title> Versorgungsarten / Dauerverordnungen </md-card-title>
+  <span flex><b> Versorgungsarten / Dauerverordnungen</b></span>
+  <div flex="10"  >
  	<md-button ng-click="vm.addSupplymentType()" class="md-button md-primary" aria-label="Add SupplymentType">
  		<md-icon class="material-icons">add</md-icon> Hinzufügen
-	</md-button>
- </div>
- <br/> 
+	</md-button>	
+	</div>
+ </div>  
  <table>
  		<tr>
  			<th>Lieferant</th>
@@ -74,6 +72,7 @@
  			<th>Dauerverordnugn Beginn</th>
  			<th>Dauerverordnugn Ende</th>
  			<th>Ausgestellt am</th>
+ 			<th></th>
  		</tr>
  		<tr ng-repeat="item in vm.patient.supplymentTypes">
 	 		<td>
@@ -101,6 +100,8 @@
 	 		</td>
 	 		<td>
 	 			<md-datepicker ng-model="item.prescriptionDate" md-placeholder="Ausgestellt am"></md-datepicker>
+	 		</td>
+	 		<td><md-button ng-click="vm.removeSupplymentType(item)" class="md-icon-button md-accent" aria-label="Remove Row"><md-icon class="material-icons">delete</md-icon></md-button>
 	 		</td>
  		</tr>
  		</table>

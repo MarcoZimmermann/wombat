@@ -16,6 +16,12 @@
           , prescriptionDate: new Date() });
     };
 
+    vm.removeSupplymentType = function(item) {
+      var index = vm.patient.supplymentTypes.indexOf(item);
+      if(index >=0)
+        vm.patient.supplymentTypes.splice(index,1);
+    };
+
     tempInit(vm);
 
 
@@ -62,13 +68,14 @@
 
     function queryDocs(query) {
       var results = query ? vm.doctors.filter( function filterFn(doc) {
-        return (doc.name.indexOf(query) >= 0);
+        
+        return (doc.name.search(new RegExp(query, 'i')) >= 0);
       } ) : vm.doctors.slice(0,25);
 
       return results;
     }
 
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 1500; i++) {
           vm.doctors.push({id: i, name: 'Verordner '+(i+1)});
     }
 
