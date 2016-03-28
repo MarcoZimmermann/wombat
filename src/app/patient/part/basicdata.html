@@ -1,116 +1,108 @@
 <div flex class="stammdaten">
-  <form name="patientForm">
-  <div layout="row" >
-    <div flex>
-      <md-checkbox ng-model="vm.patient.hasPatientDeclarationSigned">Patienten Erklärung</md-checkbox>
-    </div>
-    <div flex>
-      <div layout="row" layout-align="start center">
-        <label>Erstversorgung</label>      
-        <md-datepicker ng-model="vm.patient.firstSupplyment" md-placeholder="Erstversorgung"></md-datepicker>
-      </div>
-    </div>
-  </div>
-
-    
-     <!--Adresse -->
-     <md-card layout-padding adresse>
-      <md-card-title>Adresse</md-card-title>
-      <md-card-content>
-        <div layout-gt-sm="row" >
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Vorname</label>
-            <input ng-model="vm.patient.firstName">
-          </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Nachname</label>
-            <input ng-model="vm.patient.lastName">
-          </md-input-container>          
-        </div>    
-        <div layout-gt-sm="row" >
-          <md-input-container  flex-gt-sm>
-            <label>Strasse</label>
-            <input ng-model="vm.patient.street">
-          </md-input-container>
-          <md-input-container class="md-block small" flex-gt-sm>
-            <label>Plz</label>
-            <input name="postalCode" ng-model="vm.patient.zipCode" required ng-pattern="/^[0-9]{5}$/">
-                <div ng-messages="patientForm.postalCode.$error" role="alert" multiple>              
-                  <div ng-message="pattern" class="my-message">Keine Gültige Plz</div>              
+    <form name="patientForm">
+        <div layout="row" layout-align="start center">
+            <div >
+                <md-checkbox ng-model="vm.patient.hasPatientDeclarationSigned">Patienten Erklärung</md-checkbox>
+            </div>
+            <md-input-container class="md-block" >
+                <label>Patienten Nummer</label>
+                <input ng-model="vm.patient.number">
+            </md-input-container>
+            
+            <div >
+                <div layout="row" layout-align="start center">
+                    <label>Erstversorgung</label>
+                    <md-datepicker ng-model="vm.patient.firstSupplyment" md-placeholder="Erstversorgung"></md-datepicker>
                 </div>
-          </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Ort</label>
-            <input ng-model="vm.patient.city">
-          </md-input-container>
-        </div>
-        <div layout-gt-sm="row" >
-          <md-input-container  flex-gt-sm>
-            <label>Telefon</label>
-            <input ng-model="vm.patient.phone">
-          </md-input-container>          
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Sonstiges</label>
-            <input ng-model="vm.patient.additional">
-          </md-input-container>
+            </div>
         </div>
 
-      <div layout="row" layout-align="start center">
-        <label>Geburtsdatum</label>      
-        <md-datepicker ng-model="vm.patient.copaymentStart" md-placeholder="Befreiung von"></md-datepicker>
-      </div>
-      <md-card-content>
-    </md-card>
 
-    <!--Zusatzdaten -->
-    <md-card layout-padding> 
-      <!--KK und Verordner -->   
-      <div layout-gt-sm="row" >
-        <md-input-container class="md-block" flex-gt-sm>
-          <label>Krankenkasse</label>
-          <md-select ng-model="vm.patient.insurance">
-            <md-option ng-repeat="insurance in vm.insurances" value="{{insurance.id}}">
-              {{insurance.name}}
-            </md-option>
-          </md-select>
-        </md-input-container>
-        
-        
-        <!--   <label>Verordner</label> -->
-         <!--  <md-select ng-model="vm.patient.doctor">
-            <md-option ng-repeat="doc in vm.doctors" value="{{doc.id}}">
-              {{doc.name}}
-            </md-option>
-          </md-select> -->
-          
-        <md-autocomplete flex
-            md-selected-item="vm.patient.test"
-            md-no-cache="true"
-            md-items="doc in vm.docs.queryDocs(vm.docs.searchText)"
-            md-search-text="vm.docs.searchText"
-            md-item-text="doc.name"
-            md-floating-label="Verordner" 
-            md-min-length="0">
-            <md-item-template>
-             <div class="jumbotron">
-                <span md-highlight-text="vm.docs.searchText">{{doc.name}}</span>
-              </div>
-             
-            </md-item-template>
-          </md-autocomplete>
-        
-      </div>    
+        <!--Adresse -->
+        <md-card layout-padding adresse>
+            <md-card-title>Adresse</md-card-title>
+            <md-card-content>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Vorname</label>
+                        <input ng-model="vm.patient.firstName">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Nachname</label>
+                        <input ng-model="vm.patient.lastName">
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container flex-gt-sm>
+                        <label>Strasse</label>
+                        <input ng-model="vm.patient.street">
+                    </md-input-container>
+                    <md-input-container class="md-block small" flex-gt-sm>
+                        <label>Plz</label>
+                        <input name="postalCode" ng-model="vm.patient.zipCode" required ng-pattern="/^[0-9]{5}$/">
+                        <div ng-messages="patientForm.postalCode.$error" role="alert" multiple>
+                            <div ng-message="pattern" class="my-message">Keine Gültige Plz</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Ort</label>
+                        <input ng-model="vm.patient.city">
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container flex-gt-sm>
+                        <label>Telefon</label>
+                        <input ng-model="vm.patient.phone">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Sonstiges</label>
+                        <input ng-model="vm.patient.additional">
+                    </md-input-container>
+                </div>
 
-      <!-- Zuzahlungsbefreihung -->
-      <div layout="column">
-        <label>Befreiung</label>
-        <div class="md-inline-form">    
-          <md-datepicker ng-model="vm.patient.copaymentStart" md-placeholder="Befreiung von"></md-datepicker>
-          <span> &nbsp;bis</span>
-          <md-datepicker ng-model="vm.patient.copaymentEnd" md-placeholder="Befreiung bis"></md-datepicker>      
-        </div>
-      </div>
-    </md-card>  
+                <div layout="row" layout-align="start center">
+                    <label>Geburtsdatum</label>
+                    <md-datepicker ng-model="vm.patient.copaymentStart" md-placeholder="Befreiung von"></md-datepicker>
+                </div>
+                <md-card-content>
+        </md-card>
 
-  </form>
+        <!--Zusatzdaten -->
+        <md-card layout-padding>
+            <!--KK und Verordner -->
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Krankenkasse</label>
+                    <md-select ng-model="vm.patient.insurance">
+                        <md-option ng-repeat="insurance in vm.insurances" value="{{insurance.id}}">
+                            {{insurance.name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+
+                <!-- Zuzahlungsbefreihung -->
+                <div layout="column">
+                    <label>Befreiung</label>
+                    <div class="md-inline-form">
+                        <md-datepicker ng-model="vm.patient.copaymentStart" md-placeholder="Befreiung von"></md-datepicker>
+                        <span> &nbsp;bis</span>
+                        <md-datepicker ng-model="vm.patient.copaymentEnd" md-placeholder="Befreiung bis"></md-datepicker>
+                    </div>
+                </div>
+            </div>
+
+
+            <md-autocomplete flex md-selected-item="vm.patient.doctor" md-no-cache="true" md-items="doc in vm.docs.queryDocs(vm.docs.searchText)" md-search-text="vm.docs.searchText" md-item-text="doc.name" md-floating-label="Verordner" md-min-length="0">
+                <md-item-template>
+                    <div class="jumbotron">
+                        <span md-highlight-text="vm.docs.searchText">{{doc.name}}</span>
+                    </div>
+
+                </md-item-template>
+            </md-autocomplete>
+
+        </md-card>
+
+    </form>
 </div>

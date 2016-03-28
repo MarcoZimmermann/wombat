@@ -4,56 +4,6 @@
   <textarea style="overflow-y: scroll;" ng-model="vm.patient.diagnose" md-maxlength="350" rows="5"></textarea>
 </md-input-container>
 
-
-<!--  <md-card layout-padding class="DauerVerordnugnsList" >
- 
- <div layout="row" layout-align="start center" >
-  <md-card-title> Versorgungsarten / Dauerverordnungen </md-card-title>
- 	<md-button ng-click="vm.addSupplymentType()" class="md-primary md-mini" aria-label="Add SupplymentType">
- 		<md-icon class="material-icons">add</md-icon> Hinzufügen
-	</md-button>
- </div> 
- <table>
- 		<tr>
- 			<th>Lieferant</th>
- 			<th>Versorgungsart</th>
- 			<th>Anlage 4</th>
- 			<th>Dauerverordnugn Beginn</th>
- 			<th>Dauerverordnugn Ende</th>
- 			<th>Ausgestellt am</th>
- 		</tr>
- 		<tr ng-repeat="item in vm.patient.supplymentTypes">
-	 		<td>
-		 		<md-select ng-model="item.supplier">
-	            <md-option ng-repeat="supplier in vm.suppliers" value="{{supplier}}">
-	              {{supplier}}
-	            </md-option>
-	          </md-select>
-          	</td>
-	 		<td>
-	 			<md-select ng-model="item.supplymentType">
-				<md-option ng-repeat="type in vm.supplymentTypes" value="{{type}}">
-				  {{type}}
-				</md-option>
-				</md-select>
-	 		</td>
-	 		<td>
-	 			<md-checkbox ng-model="item.anlage4" no-space></md-checkbox><span>Anlage 4</span>
-	 		</td>
-	 		<td>
-	 			<md-datepicker ng-model="item.durationPrescriptionStart" md-placeholder="Dauerverordnung von"></md-datepicker>
-	 		</td>
-	 		<td>
-	 			<md-datepicker ng-model="item.durationPrescriptionEnd" md-placeholder="Dauerverordnung bis"></md-datepicker>
-	 		</td>
-	 		<td>
-	 			<md-datepicker ng-model="item.prescriptionDate" md-placeholder="Ausgestellt am"></md-datepicker>
-	 		</td>
- 		</tr>
- 		</table>
-	</md-card>
- -->
-
 <div layout="row" layout-padding  class="DauerVerordnugnsList">
 <md-whiteframe class="md-whiteframe-4dp" layout="column" >
  <div layout="row" layout-align="start center" >

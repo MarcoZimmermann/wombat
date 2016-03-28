@@ -6,9 +6,9 @@
     .controller('PatientController', PatientController);
 
   /** @ngInject */
-  function PatientController() {
+  function PatientController(moment) {
     var vm = this;
-    vm.selectedTabIndex = 1;
+    vm.selectedTabIndex = 2;
     
     vm.addSupplymentType = function() {
       vm.patient.supplymentTypes.push(
@@ -22,7 +22,7 @@
         vm.patient.supplymentTypes.splice(index,1);
     };
 
-    tempInit(vm);
+    tempInit(vm, moment);
 
 
   } // Controller
@@ -30,19 +30,19 @@
 
 
 
-  function tempInit(vm) {
+  function tempInit(vm, moment) {
     vm.patient = {
+      'number': '',  
       'firstName' : 'Max',
       'lastName' : 'Mustermann',
       'street': 'Muster Straße',      
       'zipCode': '12345',
       'city': "Musterhausen",
       birthdate: new Date('4/13/1982'),
-      doctor: 2,
-      test: null,
+      doctor: { id:2, name: 'Verordner 2' },     
       phone: '',
       additional:'',
-      insurance: 3,
+      insurance: 2,
       copaymentStart:new Date(),
       copaymentEnd:new Date(),
       hasPatientDeclarationSigned:true,
@@ -54,6 +54,13 @@
           , prescriptionDate: new Date() },
         { supplier: 'Schug', supplymentType : 'Privat', anlage4: true, durationPrescriptionStart: new Date(), durationPrescriptionEnd: new Date()
           , prescriptionDate: new Date() }
+      ],
+      'history' : [
+          { id:1, date: moment(new Date()).format('L'), content: "La le lu vor dem Bettchen stehn 2 Schuch, und die sind genauso Müde, drumm schlaf auch du." },
+          { id:2, date: moment(new Date()).format('L'), content: "La le lu vor dem Bettchen stehn 2 Schuch, und die sind genauso Müde, drumm schlaf auch du." },
+          { id:0, date: moment(new Date()).format('L'), content: "La le lu vor dem Bettchen stehn 2 Schuch, und die sind genauso Müde, drumm schlaf auch du." },
+          { id:3, date: moment(new Date()).format('L'), content: "La le lu vor dem Bettchen stehn 2 Schuch, und die sind genauso Müde, drumm schlaf auch du." },
+          { id:4, date: moment(new Date()).format('L'), content: "La le lu vor dem Bettchen stehn 2 Schuch, und die sind genauso Müde, drumm schlaf auch du." },
       ]
     };
     vm.patient.copaymentEnd.setMonth(vm.patient.copaymentStart.getMonth()+1);

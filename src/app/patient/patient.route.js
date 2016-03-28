@@ -14,15 +14,11 @@
           sideView : {
             templateUrl: 'app/main/side.html'            
           },
-          'content@' : { 
+          'content' : { 
             templateUrl: 'app/patient/patient.html',
             controller: 'PatientController',
             controllerAs: 'vm'
-          }
-          // 'tabview@patientEdit' : {
-          //     //templateUrl: 'app/product/product.html'
-          //     template: '<h1>asd</h1>'
-          // }
+          }          
         }
          
       })

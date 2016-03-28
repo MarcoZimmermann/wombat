@@ -1,0 +1,21 @@
+<md-list>
+    <md-list-item ng-repeat="item in vm.patient.history">
+        <md-card layout-padding flex-gt-sm>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Notiz vom: {{item.date}}</span>                    
+                </md-card-title-text>                
+            </md-card-title>
+            
+                <md-input-container >
+                    <textarea ng-if="item.isEdit" style="overflow-y: scroll;" ng-model="item.content" md-maxlength="500" rows="5"></textarea>
+                    <span ng-if="!item.isEdit" ng-text="item.content">{{item.content}}</span>
+                </md-input-container>
+            
+            <md-card-actions layout="row" layout-align="end center">            
+                <md-button ng-click="item.isEdit = !item.isEdit">Bearbeiten</md-button>
+                <md-button>Löschen</md-button>
+            </md-card-actions>
+        </md-card>        
+    </md-list-item>
+</md-list>
