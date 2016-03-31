@@ -8,7 +8,7 @@
   /** @ngInject */
   function PatientController(moment) {
     var vm = this;
-    vm.selectedTabIndex = 2;
+    vm.selectedTabIndex = 0;
     
     vm.addSupplymentType = function() {
       vm.patient.supplymentTypes.push(
@@ -26,8 +26,6 @@
 
 
   } // Controller
-
-
 
 
   function tempInit(vm, moment) {
@@ -60,7 +58,7 @@
           { id:2, date: moment(new Date()).format('L'), content: "La le lu vor dem Bettchen stehn 2 Schuch, und die sind genauso Müde, drumm schlaf auch du." },
           { id:0, date: moment(new Date()).format('L'), content: "La le lu vor dem Bettchen stehn 2 Schuch, und die sind genauso Müde, drumm schlaf auch du." },
           { id:3, date: moment(new Date()).format('L'), content: "La le lu vor dem Bettchen stehn 2 Schuch, und die sind genauso Müde, drumm schlaf auch du." },
-          { id:4, date: moment(new Date()).format('L'), content: "La le lu vor dem Bettchen stehn 2 Schuch, und die sind genauso Müde, drumm schlaf auch du." },
+          { id:4, date: moment(new Date()).format('L'), content: "La le lu vor dem Bettchen stehn 2 Schuch, und die sind genauso Müde, drumm schlaf auch du." }
       ]
     };
     vm.patient.copaymentEnd.setMonth(vm.patient.copaymentStart.getMonth()+1);
@@ -68,7 +66,7 @@
     vm.doctors = [];
 
     vm.docs = {
-      searchText : null,
+      docSearchText : null,
       queryDocs : queryDocs
     };
 

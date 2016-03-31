@@ -1,3 +1,4 @@
+<div ng-controller="HistoryController as history" class="history">
 <md-list>
     <md-list-item ng-repeat="item in vm.patient.history">
         <md-card layout-padding flex-gt-sm>
@@ -12,10 +13,13 @@
                     <span ng-if="!item.isEdit" ng-text="item.content">{{item.content}}</span>
                 </md-input-container>
             
-            <md-card-actions layout="row" layout-align="end center">            
-                <md-button ng-click="item.isEdit = !item.isEdit">Bearbeiten</md-button>
-                <md-button>Löschen</md-button>
+            <md-card-actions layout="row" layout-align="end center">                
+                <md-button ng-if="item.isEdit" ng-click="history.saveItem(item)" class="md-primary" ng-aria="Save Item">Speichern</md-button>
+                <md-button ng-if="item.isEdit" ng-click="history.cancelEdit(item)" ng-aria="Cancel Edit">Abbrechen</md-button>            
+                <md-button ng-if="!item.isEdit" ng-click="item.isEdit = !item.isEdit" ng-aria="Edit Item">Bearbeiten</md-button>
+                <md-button ng-if="!item.isEdit" ng-click="history.deleteItem(item, vm.patient)" ng-aria="Delete Item" >Löschen</md-button>                
             </md-card-actions>
         </md-card>        
     </md-list-item>
 </md-list>
+</div>

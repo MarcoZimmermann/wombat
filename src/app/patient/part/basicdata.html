@@ -1,15 +1,15 @@
-<div flex class="stammdaten">
+<div flex class="stammdaten" ng-controller="BasicDataController as basicData">
     <form name="patientForm">
         <div layout="row" layout-align="start center">
-            <div >
+            <div>
                 <md-checkbox ng-model="vm.patient.hasPatientDeclarationSigned">Patienten Erklärung</md-checkbox>
             </div>
-            <md-input-container class="md-block" >
+            <md-input-container class="md-block">
                 <label>Patienten Nummer</label>
                 <input ng-model="vm.patient.number">
             </md-input-container>
-            
-            <div >
+
+            <div>
                 <div layout="row" layout-align="start center">
                     <label>Erstversorgung</label>
                     <md-datepicker ng-model="vm.patient.firstSupplyment" md-placeholder="Erstversorgung"></md-datepicker>
@@ -91,16 +91,19 @@
                     </div>
                 </div>
             </div>
+            <div layout-gt-sm="row" layout-align="start center">
 
+                <md-autocomplete md-selected-item="vm.patient.doctor" md-no-cache="true" md-items="doc in basicData.queryDocs(basicData.docSearchText)" md-search-text="basicData.docSearchText" md-item-text="doc.name" md-floating-label="Verordner" md-min-length="0">
+                    <md-item-template>
+                        <div class="jumbotron">
+                            <span md-highlight-text="basicData.docSearchText">{{doc.name}}</span>
+                        </div>
 
-            <md-autocomplete flex md-selected-item="vm.patient.doctor" md-no-cache="true" md-items="doc in vm.docs.queryDocs(vm.docs.searchText)" md-search-text="vm.docs.searchText" md-item-text="doc.name" md-floating-label="Verordner" md-min-length="0">
-                <md-item-template>
-                    <div class="jumbotron">
-                        <span md-highlight-text="vm.docs.searchText">{{doc.name}}</span>
-                    </div>
+                    </md-item-template>
+                </md-autocomplete>
+                <md-button  ng-click="basicData.docSearchText=null" class="md-icon-button clearBtnDocs" aria-label="Remove Doc"><md-icon class="material-icons">delete</md-icon></md-button>
+            </div>
 
-                </md-item-template>
-            </md-autocomplete>
 
         </md-card>
 
