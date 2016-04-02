@@ -9,5 +9,6 @@
   function CockpitController() {
     var vm = this;
     
+    vm.test = 0;
   }
 })();
