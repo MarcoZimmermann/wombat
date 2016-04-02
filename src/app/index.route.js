@@ -9,8 +9,24 @@
   function routerConfig($stateProvider, $urlRouterProvider) {
     
     $stateProvider
-      .state('home', {
+    
+     .state('home', {
         url: '/',
+        views: {
+          "sideView" : {
+            templateUrl: 'app/main/side.html'            
+          },
+          "content" : { 
+            templateUrl: 'app/cockpit/cockpit.html',
+            controller: 'CockpitController',
+            controllerAs: 'cockpit'
+          }
+        }
+      })      
+      
+      
+      .state('demo', {
+        url: '/demo',
         views: {
           "sideView" : {
             templateUrl: 'app/main/side.html'            
@@ -20,10 +36,7 @@
             controller: 'MainController',
             controllerAs: 'main'
           }
-        },        
-        ncyBreadcrumb: {
-          label: 'Home'
-        }        
+        }
       })      
  
 
