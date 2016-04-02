@@ -6,16 +6,17 @@ angular
     .controller('BasicDataController', BasicDataController);
     
   /** @ngInject */
-function BasicDataController() {
+function BasicDataController(doctorService) {
     var vm = this;
     
     vm.docSearchText = null;
     vm.doctors = [];
     
-    vm.doctors.push({id: 0, name: 'Verordner 0, Muster Straße 123 in 92237 Sulzbach-Rosenberg'});
-    for (var i = 1; i < 1500; i++) {
-        vm.doctors.push({id: i, name: 'Verordner '+(i+1)});
-    }
+    
+    doctorService.getDoctors().then(function (docs) {
+        vm.doctors = docs;
+    });
+    
     
     vm.queryDocs =function(query) {
         if(!query)
