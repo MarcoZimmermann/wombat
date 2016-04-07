@@ -3,10 +3,10 @@
 
   angular
     .module('wombat')
-    .controller('CockpitController', CockpitController);
+    .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function CockpitController() {
+  function DashboardController() {
     var vm = this;
     
     vm.test = 0;

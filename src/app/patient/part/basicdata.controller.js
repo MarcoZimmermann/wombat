@@ -17,7 +17,6 @@
             vm.doctors = docs;
         });
 
-
         vm.queryDocs = function(query) {
             if (!query)
                 return vm.doctors.slice(0, 25);
@@ -27,10 +26,5 @@
             });
             return results.slice(0, 25);
         }
-
-
-
     }
-    // Controller
-
 })();

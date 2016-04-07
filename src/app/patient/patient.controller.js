@@ -8,7 +8,7 @@
     /** @ngInject */
     function PatientController(moment, patientService, insuranceService, supplymentService) {
         var vm = this;
-        vm.selectedTabIndex = 0;
+        vm.selectedTabIndex = 3;
 
         vm.addSupplymentType = function() {
             vm.patient.supplymentTypes.push({

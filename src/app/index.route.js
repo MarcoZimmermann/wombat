@@ -17,9 +17,9 @@
             templateUrl: 'app/main/side.html'            
           },
           "content" : { 
-            templateUrl: 'app/cockpit/cockpit.html',
-            controller: 'CockpitController',
-            controllerAs: 'cockpit'
+            templateUrl: 'app/dashboard/dashboard.html',
+            controller: 'DashboardController',
+            controllerAs: 'dashboard'
           }
         }
       })      

@@ -46,3 +46,27 @@
         min-height: 120px;
     }
 }
+
+.orders {
+    md-list span {
+        min-width: 110px;
+    }
+     table{
+      table-layout: fixed;
+  }
+
+  th, td {
+      overflow: hidden;
+      width: 140px;
+  }
+  
+  .w0 { width:90px}
+  .w2 {
+      width : 170px;
+  }
+  .w3 {
+      width : 200px;
+  }
+  
+ 
+}
