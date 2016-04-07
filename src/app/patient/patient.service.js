@@ -6,10 +6,11 @@
         .factory('patientService', patientService);
 
     /** @ngInject */
-    function patientService() {
+    function patientService(moment) {
 
         var service = {
-            getPatient: getPatient
+            getPatient: getPatient,
+            currentPatient : null
         };
 
         return service;
@@ -80,6 +81,8 @@
                 }]
             };
             patient.copaymentEnd.setMonth(patient.copaymentStart.getMonth() + 1);
+            
+            service.currentPatient = patient;
             return patient;
         }
     }
