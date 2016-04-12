@@ -1,53 +1,30 @@
 <div class="orders" ng-controller="OrdersOverviewController as orders">
 <h1>Aufträge</h1>
-<md-list>
-    <md-list-item layout-padding >
-        <span>Auftragsdatum</span>
-        <span>Lieferdatum</span>
-        <span>Rezept Status</span>
-        <span>Versorgezeitraum</span>
-        <span>Versorgungsart</span>
-        <span>Nächste Lieferung</span>
-        <span>Ist Erledigt</span>
-    </md-list-item>
-    <md-list-item layout-padding ng-click="orders.editOrder(1)" >
-        <span>22.01.2012</span>
-        <span>22.01.2012</span>
-        <span class="w0"><md-icon class="md-primary material-icons">check</md-icon></span>
-        <span class="w3">22.01.2012 bis 22.01.2012</span>
-        <span>Trinnahrung</span>
-        <span>22.01.2012</span>
-        <span><md-icon class="md-primary material-icons">check</md-icon></span>
-    </md-list-item>
-    <md-list-item layout-padding >
-        <span>22.01.2012</span>
-        <span>22.01.2012</span>
-        <span><md-icon class="md-primary material-icons">check</md-icon></span>
-        <span>22.01.2012 bis 22.01.2012</span>
-        <span>Trinnahrung</span>
-        <span>22.01.2012</span>
-        <span><md-icon class="md-primary material-icons">check</md-icon></span>
-    </md-list-item>
-</md-list>
 
 <table>
     <tr >
         <th align="left">Lieferdatum</th>
         <th align="left">Auftragsdatum</th>
-        <th align="left">Rezept Status</th>
+        <th align="left">Rezept</th>
         <th align="left">Versorgezeitraum</th>
         <th align="left">Versorgungsart</th>
         <th align="left">Nächste Lieferung</th>
-        <th align="left">Ist Erledigt</th>
+        <th align="left">Status</th>
     </tr>
-    <tr ng-click="orders.editOrder(1)" >
-        <td>22.01.2012</td>
-        <td>22.01.2012</td>
-        <td><md-icon class="md-primary material-icons">check</md-icon></td>
-        <td class="w3">22.01.2012 bis 22.01.2012</td>
-        <td>Trinnahrung</td>
-        <td class="w2">22.01.2012</td>
-        <td><md-icon class="md-primary material-icons">check</md-icon></td>
+    <tr ng-repeat="order in orders.patientOrders" ng-click="orders.editOrder(order)" >
+        <td>{{order.deliveryDate}}</td>
+        <td>{{order.orderDate}}</td>
+        <td>
+            <md-icon title="Rezept OK" ng-if="order.prescriptionState==1" class="md-primary material-icons">check</md-icon>
+            <md-icon title="Rezept offen" ng-if="order.prescriptionState==0" class="md-primary material-icons">clear</md-icon>
+        </td>
+        <td class="w3">{{order.carePeriodStart}} bis {{order.carePeriodEnd}}</td>
+        <td>{{order.supplymentType}}</td>
+        <td class="w2">{{order.nextDelivery}}</td>
+        <td ng-click="orders.editOrder2($event); $event.stopPropagation();">
+            <md-icon title="Auftrag abgeschlossen" ng-if="order.orderState==1" class="md-primary material-icons">check</md-icon>
+            <md-icon title="Auftrag offen" ng-if="order.orderState==0" class="md-primary material-icons">clear</md-icon>
+        </td>
     </tr>
     
 </md-list>

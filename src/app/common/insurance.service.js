@@ -15,7 +15,7 @@
         
         
         function getInsurances() {
-             return [
+             var insurances = [
                     { id: 1, name: 'AOK'},
                     { id: 2, name: 'BKK Deutsche'},
                     { id: 3, name: 'DAK'},
@@ -23,6 +23,17 @@
                     { id: 5, name: 'Privat'},
                     { id: 6, name: 'Selbstzahler'}
                 ];
-        }   
+                
+            insurances.sort(sortPredicate);
+            return insurances;
+        }  
+        
+        function sortPredicate(a, b) {
+            if (a.name == b.name)
+                return 0;
+            if (a.name > b.name)
+                return 1;
+            return -1;
+        } 
     }
 })();
