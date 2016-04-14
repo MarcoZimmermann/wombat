@@ -54,11 +54,7 @@
      table{
       table-layout: fixed;
   }
-
-  tr:hover {
-    //    background: red;
-            
-  }
+ 
   td:hover {
       cursor: pointer;
   }
@@ -75,8 +71,47 @@
   .w3 {
       width : 200px;
   }
-  
-  
-  
+}
+
+
+
+.animate-if.ng-enter, .animate-if.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.animate-if.ng-enter,
+.animate-if.ng-leave.ng-leave-active
+ {
+   opacity:0;
+
+    -webkit-transition: 500ms   all;
+    -moz-transition: 500ms   all;
+    -ms-transition: 500ms   all;
+    -o-transition: 500ms   all;
+    transition: 500ms      all;
  
 }
+
+.animate-if.ng-leave,
+.animate-if.ng-enter.ng-enter-active 
+{
+    
+   opacity:1;
+    -webkit-transition: 400ms  all;
+    -moz-transition: 400ms  all;
+    -ms-transition: 400ms  all;
+    -o-transition: 400ms  all;
+    transition: 400ms  all;
+}
+
+// .animate-enter, 
+// .animate-leave
+// { 
+//     -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+//     -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+//     -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+//     -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+//     transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+//     position: relative;
+//     display: block;
+// } 

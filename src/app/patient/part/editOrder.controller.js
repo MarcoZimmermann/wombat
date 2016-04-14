@@ -6,17 +6,15 @@
         .controller('EditOrderController', EditOrderController);
 
     /** @ngInject */
-    function EditOrderController($stateParams, $mdDialog, ordersService) {
+    function EditOrderController($stateParams, ordersService) {
         var vm = this;
         
-        var order = ordersService.getOrder(123);
+        var order = ordersService.currentOrder;
+        vm.order = order;
 
-        vm.cancel = function() {
-            $mdDialog.cancel();
+        vm.cancel = function () {
+            vm.order = null;
+            ordersService.currentOrder = null;
         }
-
-        vm.save = function() {
-            $mdDialog.hide('Lalelu');
-        }        
     }
 })();

@@ -1,5 +1,9 @@
 <div class="orders" ng-controller="OrdersOverviewController as orders">
 <h1>Aufträge</h1>
+<div ng-if="orders.selectedOrder!=null" ng-include="'app/patient/part/editOrder.html'" ng-animate="animate-if" class="animate-if">
+</div>
+
+
 
 <table>
     <tr >

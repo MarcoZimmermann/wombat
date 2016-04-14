@@ -10,7 +10,8 @@
 
         var service = {
             getOrders: getOrders,
-            getOrder : getOrder
+            getOrder: getOrder,
+            currentOrder : null
         };
 
         return service;
@@ -47,18 +48,20 @@
       }
       
       function getOrder(orderId) {
-          return {                  
+          var order = {                  
                   id:orderId,
                   patientId : 5,
-                  deliveryDate: moment(new Date()).format('L'),
-                  orderDate: moment(new Date()).format('L'),
+                  deliveryDate: new Date(),
+                  orderDate: new Date(),
                   prescriptionState : 0,
-                  carePeriodStart: moment(new Date()).format('L'),
-                  carePeriodEnd: moment(new Date()).format('L'),
+                  carePeriodStart: new Date(),
+                  carePeriodEnd: new Date(),
                   supplymentType: 'Komisch',
-                  nextDelivery: moment(new Date()).format('L'),
+                  nextDelivery: new Date(),
                   orderState : 1
-              };
+          };
+          service.currentOrder = order;
+          return order;
       }
       
       

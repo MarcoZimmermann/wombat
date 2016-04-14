@@ -1,6 +1,16 @@
-<md-dialog ng-cloak>
+<div ng-controller="EditOrderController as edit">
+<!--<md-dialog ng-cloak>-->
+    <md-card layout-padding>
     <form>
-        <h1>Auftrag bearbeiten</h1>
+        <!--<h1>Auftrag bearbeiten</h1>-->
+        <div layout-gt-sm="row">
+            <div layout="column">
+                <label>Auftragsdatum</label>
+                <div class="md-inline-form">
+                    <md-datepicker ng-model="edit.order.orderDate" md-placeholder="Auftragsdatum"></md-datepicker>                 
+                </div>
+            </div>
+        </div>
 
         <md-dialog-actions layout="row">
             <md-button ng-click="edit.save()" style="margin-right:20px;">
@@ -9,7 +19,9 @@
             <md-button ng-click="edit.cancel()">
                 Abbrechen
             </md-button>
-            
+
         </md-dialog-actions>
     </form>
-</md-dialog>
+    </md-card>
+<!--</md-dialog>-->
+</div>
