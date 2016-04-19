@@ -25,7 +25,8 @@
         <td class="w3">{{order.carePeriodStart}} bis {{order.carePeriodEnd}}</td>
         <td>{{order.supplymentType}}</td>
         <td class="w2">{{order.nextDelivery}}</td>
-        <td ng-click="orders.editOrder2($event); $event.stopPropagation();">
+        <!--<td ng-click="orders.editOrder2($event); $event.stopPropagation();">-->
+        <td>
             <md-icon title="Auftrag abgeschlossen" ng-if="order.orderState==1" class="md-primary material-icons">check</md-icon>
             <md-icon title="Auftrag offen" ng-if="order.orderState==0" class="md-primary material-icons">clear</md-icon>
         </td>
