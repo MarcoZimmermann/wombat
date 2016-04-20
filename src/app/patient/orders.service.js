@@ -6,7 +6,7 @@
         .factory('ordersService', ordersService);
 
     /** @ngInject */
-    function ordersService(moment) {
+    function ordersService() {
 
         var service = {
             getOrders: getOrders,
@@ -24,7 +24,8 @@
                   patientId : patientId,
                   deliveryDate: new Date(),
                   orderDate: new Date(),
-                  prescriptionState : 0,
+                  prescriptionState: 0,
+                  prescriptionToSupplier: new Date(),
                   carePeriodStart: new Date(),
                   carePeriodEnd: new Date(),
                   supplymentType: 'Komisch',
@@ -36,10 +37,12 @@
                   patientId : patientId,
                   deliveryDate: new Date(),
                   orderDate: new Date('01.01.2016'),
-                  prescriptionState : 1,
+                  prescriptionState: 1,
+                  prescriptionToSupplier: new Date(),
                   carePeriodStart: new Date(),
                   carePeriodEnd: new Date(),
-                  supplymentType: 'Zeuch',
+                  carePeriod: '14 Tage',
+                  supplymentType: '',
                   nextDelivery: new Date(),
                   orderState : 0
               }
@@ -48,10 +51,9 @@
       }
       
       function getOrder(orderId) {
-        
           var order = getOrders().filter(function (x) { return x.id == orderId})[0];          
-          service.currentOrder = order;
-          return order;
+           service.currentOrder = order;
+           return order;
       }
       
       

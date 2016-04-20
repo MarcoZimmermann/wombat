@@ -1,9 +1,11 @@
-
-.stammdaten {
-  md-input-container {
+md-input-container {
     max-width: 250px;
     margin-right: 10px;
   }
+  
+
+.stammdaten {
+  
   .small {
     max-width:70px;
   }
@@ -47,7 +49,8 @@
     }
 }
 
-.orders {
+.orders {   
+  
     md-list span {
         min-width: 110px;
     }

@@ -2,12 +2,57 @@
 <!--<md-dialog ng-cloak>-->
     <md-card layout-padding>
     <form>
-        <!--<h1>Auftrag bearbeiten</h1>-->
-        <div layout-gt-sm="row">
+       
+        <div layout-gt-sm="row" >
+                  
             <div layout="column">
-                <label>Auftragsdatum</label>
+                <label style="font-size:10">Auftragsdatum</label>
                 <div class="md-inline-form">
                     <md-datepicker ng-model="edit.order.orderDate" md-placeholder="Auftragsdatum"></md-datepicker>                 
+                </div>
+            </div>
+            <div layout="column">
+                <label>Lieferdatum</label>
+                <div class="md-inline-form">
+                    <md-datepicker ng-model="edit.order.deliveryDate" md-placeholder="Auftragsdatum"></md-datepicker>                 
+                </div>
+            </div>
+            <md-input-container class="md-block" flex>
+                <label>Versorgungsart</label>
+                
+                    <md-select ng-model="edit.order.supplymentType">
+					<md-option ng-repeat="type in vm.supplymentTypes" value="{{type}}">
+						{{type}}
+					</md-option>
+				</md-select>
+              </md-input-container>
+            
+                   
+        </div>
+        
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex>
+                <label>Versorgezeitraum</label>
+                
+                    <md-select ng-model="edit.order.carePeriod">
+					<md-option ng-repeat="type in edit.carePeriods" value="{{type}}">
+						{{type}}
+					</md-option>
+				</md-select>
+              </md-input-container>
+              
+             <div layout="column" ng-if="edit.order.carePeriod=='Sonstiges'">
+                    <label>Versorgezeitraum</label>
+                    <div class="md-inline-form">
+                        <md-datepicker ng-model="edit.order.carePeriodStart" md-placeholder="Versorgezeitraum von"></md-datepicker>
+                        <span> &nbsp;bis</span>
+                        <md-datepicker ng-model="edit.order.carePeriodEnd" md-placeholder="Versorgezeitraum bis"></md-datepicker>
+                    </div>
+            </div>
+            <div layout="column">
+                <label>Rezept an Lieferant</label>
+                <div class="md-inline-form">
+                    <md-datepicker ng-model="edit.order.deliveryDate" md-placeholder="Auftragsdatum"></md-datepicker>                 
                 </div>
             </div>
         </div>

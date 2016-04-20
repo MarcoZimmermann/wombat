@@ -1,9 +1,13 @@
 {
   "extends": "eslint:recommended",
   "plugins": ["angular"],
+  "parserOptions": {
+        "ecmaVersion": 6
+  },
   "env": {
     "browser": true,
-    "jasmine": true
+    "jasmine": true,
+    "es6":true
   },
   "globals": {
     "angular": true,

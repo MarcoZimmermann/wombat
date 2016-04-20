@@ -15,7 +15,18 @@
         $scope.$watch(function() { return ordersService.currentOrder }, function () {
             vm.order = ordersService.currentOrder;    
         });        
-                
+
+
+        vm.carePeriods =
+            ['7 Tage',
+            '10 Tage',
+            '14 Tage',
+            '4 Wochen',
+            '8 Wochen',
+            '3 Monate',
+            'Sonstiges']        
+
+
         vm.cancel = function () {
             vm.order = null;
             ordersService.currentOrder = null;
