@@ -55,9 +55,6 @@
            service.currentOrder = order;
            return order;
       }
-      
-      
-      
     }
 
 })();
