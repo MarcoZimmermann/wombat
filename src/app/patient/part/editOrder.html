@@ -1,72 +1,189 @@
 <div ng-controller="EditOrderController as edit">
-<!--<md-dialog ng-cloak>-->
+    <!--<md-dialog ng-cloak>-->
     <md-card layout-padding>
-    <form>
-       
-        <div layout-gt-sm="row" >
-                  
-            <div layout="column">
-                <label style="font-size:10">Auftragsdatum</label>
-                <div class="md-inline-form">
-                    <md-datepicker ng-model="edit.order.orderDate" md-placeholder="Auftragsdatum"></md-datepicker>                 
+        <form>
+            <!--<table>
+                <tr>
+                    <td style="width:20%">
+                        <label style="font-size:10">Auftragsdatum</label>
+                        <div class="md-inline-form">
+                            <md-datepicker ng-model="edit.order.orderDate" md-placeholder="Auftragsdatum"></md-datepicker>
+                        </div>
+                    </td>
+                    <td style="width:20%">
+                        <label>Lieferdatum</label>
+                        <div class="md-inline-form">
+                            <md-datepicker ng-model="edit.order.deliveryDate" md-placeholder="Auftragsdatum"></md-datepicker>
+                        </div>
+                    </td>
+                    <td style="width:20%">
+                        <md-input-container class="md-block">
+                            <label>Versorgungsart</label>
+
+                            <md-select ng-model="edit.order.supplymentType">
+                                <md-option ng-repeat="type in vm.supplymentTypes" value="{{type}}">
+                                    {{type}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+
+                        <label>Versorgezeitraum</label>
+                        <div class="md-inline-form">
+                            <md-datepicker ng-model="edit.order.carePeriodStart" md-placeholder="Versorgezeitraum von"></md-datepicker>
+                            <span> &nbsp;bis</span>
+                            <md-datepicker ng-model="edit.order.carePeriodEnd" md-placeholder="Versorgezeitraum bis"></md-datepicker>
+                        </div>
+
+                    </td>
+                    <td>
+                        <label>Rezept an Lieferant</label>
+                        <div class="md-inline-form">
+                            <md-datepicker ng-model="edit.order.deliveryDate" md-placeholder="Auftragsdatum"></md-datepicker>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>Nächste Lieferung</label>
+                        <div class="md-inline-form">
+                            <md-datepicker ng-model="edit.order.deliveryDate" md-placeholder="Auftragsdatum"></md-datepicker>
+                        </div>
+                    </td>
+                    <td>
+                        <md-input-container class="md-block">
+                            <label>Rezept Status</label>
+
+                            <md-select ng-model="edit.order.prescriptionStates">
+                                <md-option ng-repeat="type in edit.prescriptionStates" value="{{type}}">
+                                    {{type}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <label>Rezeptdatum</label>
+                        <div class="md-inline-form">
+                            <md-datepicker ng-model="edit.order.deliveryDate" md-placeholder="Auftragsdatum"></md-datepicker>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+
+                </tr>
+            </table>
+            <br />
+            <br />
+            <br />
+            <br />-->
+
+
+
+    
+            <div layout-gt-sm="row">
+
+
+                <div layout="column" flex-gt-sm="20">
+                    <label style="font-size:10">Auftragsdatum</label>
+                    <div class="md-inline-form">
+                        <md-datepicker ng-model="edit.order.orderDate" md-placeholder="Auftragsdatum"></md-datepicker>
+                    </div>
                 </div>
-            </div>
-            <div layout="column">
-                <label>Lieferdatum</label>
-                <div class="md-inline-form">
-                    <md-datepicker ng-model="edit.order.deliveryDate" md-placeholder="Auftragsdatum"></md-datepicker>                 
+                <div layout="column" flex-gt-sm="20">
+                    <label>Lieferdatum</label>
+                    <div class="md-inline-form">
+                        <md-datepicker ng-model="edit.order.deliveryDate" md-placeholder="Auftragsdatum"></md-datepicker>
+                    </div>
                 </div>
-            </div>
-            <md-input-container class="md-block" flex>
-                <label>Versorgungsart</label>
-                
+                <md-input-container class="md-block" flex-gt-sm="20">
+                    <label>Versorgungsart</label>
+
                     <md-select ng-model="edit.order.supplymentType">
-					<md-option ng-repeat="type in vm.supplymentTypes" value="{{type}}">
-						{{type}}
-					</md-option>
-				</md-select>
-              </md-input-container>
-            
-                   
-        </div>
-        
-        <div layout-gt-sm="row">
-            <md-input-container class="md-block" flex>
-                <label>Versorgezeitraum</label>
-                
-                    <md-select ng-model="edit.order.carePeriod">
-					<md-option ng-repeat="type in edit.carePeriods" value="{{type}}">
-						{{type}}
-					</md-option>
-				</md-select>
-              </md-input-container>
-              
-             <div layout="column" ng-if="edit.order.carePeriod=='Sonstiges'">
+                        <md-option ng-repeat="type in vm.supplymentTypes" value="{{type}}">
+                            {{type}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+
+            </div>
+
+            <div layout="row" class="rowSpacer">
+                <div layout="column" flex-gt-sm="40">
                     <label>Versorgezeitraum</label>
                     <div class="md-inline-form">
                         <md-datepicker ng-model="edit.order.carePeriodStart" md-placeholder="Versorgezeitraum von"></md-datepicker>
                         <span> &nbsp;bis</span>
                         <md-datepicker ng-model="edit.order.carePeriodEnd" md-placeholder="Versorgezeitraum bis"></md-datepicker>
                     </div>
-            </div>
-            <div layout="column">
-                <label>Rezept an Lieferant</label>
-                <div class="md-inline-form">
-                    <md-datepicker ng-model="edit.order.deliveryDate" md-placeholder="Auftragsdatum"></md-datepicker>                 
+
+                </div>
+               
+                <div layout="column" flex-gt-sm="20">
+                    <label>Rezept an Lieferant</label>
+                    <div class="md-inline-form">
+                        <md-datepicker ng-model="edit.order.deliveryDate" md-placeholder="Auftragsdatum"></md-datepicker>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <md-dialog-actions layout="row">
-            <md-button ng-click="edit.save()" style="margin-right:20px;">
-                Speichern
-            </md-button>
-            <md-button ng-click="edit.cancel()">
-                Abbrechen
-            </md-button>
+            <div layout="row" class="rowSpacer">
+                <div layout="column" flex-gt-sm="20" >
+                    <label>Nächste Lieferung</label>
+                    <div class="md-inline-form">
+                        <md-datepicker ng-model="edit.order.deliveryDate" md-placeholder="Auftragsdatum"></md-datepicker>
+                    </div>
+                </div>
+                <div layout="column" flex-gt-sm="20" >
+                    <md-input-container class="md-block" >
+                        <label>Rezept Status</label>
 
-        </md-dialog-actions>
-    </form>
+                        <md-select ng-model="edit.order.prescriptionStates">
+                            <md-option ng-repeat="type in edit.prescriptionStates" value="{{type}}">
+                                {{type}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+
+                <div layout="column" flex-gt-sm="20">
+                    <label>Rezeptdatum</label>
+                    <div class="md-inline-form">
+                        <md-datepicker ng-model="edit.order.deliveryDate" md-placeholder="Auftragsdatum"></md-datepicker>
+                    </div>
+                </div>
+            </div>
+            
+            <div layout-gt-sm="row">
+                <div layout="column" flex-gt-sm="20" layout-align="end start">
+                    <md-checkbox ng-model="vm.patient.hasPatientDeclarationSigned">Auftrag Erledigt</md-checkbox>
+                </div>
+                
+                <div layout="column" flex-gt-sm="40">
+                    <label>Dauerverordnung </label>
+                    <span>{{edit.order.carePeriodStart}} bis {{edit.order.carePeriodEnd}}</span>
+                </div>
+            </div>
+
+
+
+            <md-divider class="rowSpacer" />
+
+            <md-dialog-actions layout="row" layout-align="start center">
+
+                <md-button ng-click="edit.save()" style="margin-right:20px;">
+                    Speichern
+                </md-button>
+                <md-button ng-click="edit.cancel()">
+                    Abbrechen
+                </md-button>
+
+            </md-dialog-actions>
+        </form>
     </md-card>
-<!--</md-dialog>-->
+    <!--</md-dialog>-->
 </div>

@@ -2,7 +2,10 @@ md-input-container {
     max-width: 250px;
     margin-right: 10px;
   }
-  
+
+.rowSpacer {
+    margin-top: 10px;
+}  
 
 .stammdaten {
   
@@ -62,16 +65,16 @@ md-input-container {
       cursor: pointer;
   }
   
-  th, td {
+  .overview th, .overview td {
       overflow: hidden;
       width: 140px;
   }
   
-  .w0 { width:90px}
-  .w2 {
+  table .w0 { width:90px}
+  table .w2 {
       width : 170px;
   }
-  .w3 {
+  table .w3 {
       width : 200px;
   }
 }

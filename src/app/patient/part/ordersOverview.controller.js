@@ -33,7 +33,7 @@
 
         
 
-        vm.editOrder = function (order) {
+        vm.editOrder = function (order, ev) {
             ordersService.getOrder(order.id);
             vm.selectedOrder = order; 
             // $mdDialog.show({

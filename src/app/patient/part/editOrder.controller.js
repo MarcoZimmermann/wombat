@@ -17,14 +17,11 @@
         });        
 
 
-        vm.carePeriods =
-            ['7 Tage',
-            '10 Tage',
-            '14 Tage',
-            '4 Wochen',
-            '8 Wochen',
-            '3 Monate',
-            'Sonstiges']        
+        vm.prescriptionStates =
+            ['Kein Rezept',
+            'Rezept Angefordert',
+            'Rezept OK'
+            ]        
 
 
         vm.cancel = function () {
