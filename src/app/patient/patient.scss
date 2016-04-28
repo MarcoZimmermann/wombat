@@ -21,6 +21,7 @@ md-input-container {
   
 }
 
+
 .DauerVerordnungsList {    
   md-checkbox[no-space] {
     margin-right: 0px;
@@ -109,15 +110,3 @@ md-input-container {
     -o-transition: 400ms  all;
     transition: 400ms  all;
 }
-
-// .animate-enter, 
-// .animate-leave
-// { 
-//     -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-//     -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-//     -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-//     -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-//     transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-//     position: relative;
-//     display: block;
-// } 

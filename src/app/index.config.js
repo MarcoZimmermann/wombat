@@ -18,8 +18,8 @@
     toastrConfig.progressBar = true;
 
     $mdThemingProvider.theme('default')
-      .primaryPalette('teal')
-     .accentPalette('deep-orange');
+      .primaryPalette('blue-grey')
+     .accentPalette('pink');
    
    initializeLocaleSettings($mdDateLocaleProvider, moment); 
     

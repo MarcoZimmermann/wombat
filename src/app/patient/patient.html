@@ -1,9 +1,11 @@
 <div layout="row" >
   <div  flex ng-cloak >
+    <md-toolbar  layout-padding><span>{{vm.patient.firstName}} {{vm.patient.lastName}}</span>
+    </md-toolbar>
       <md-content>
         <md-tabs md-dynamic-height md-border-bottom md-selected="vm.selectedTabIndex">
           <md-tab label="Stammdaten">
-            <md-content class="md-padding">
+            <md-content >
               <div ng-include="'app/patient/part/basicdata.html'"></div>
              
             </md-content>

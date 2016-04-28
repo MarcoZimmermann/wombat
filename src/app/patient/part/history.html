@@ -9,7 +9,7 @@
             </md-card-title>
             
                 <md-input-container >
-                    <textarea ng-if="item.isEdit" style="overflow-y: scroll;" ng-model="item.content" md-maxlength="500" rows="5"></textarea>
+                    <textarea ng-if="item.isEdit" ng-model="item.content" md-maxlength="500" rows="5"></textarea>
                     <span ng-if="!item.isEdit" ng-text="item.content">{{item.content}}</span>
                 </md-input-container>
             

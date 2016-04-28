@@ -6,8 +6,8 @@
         .factory('ordersService', ordersService);
 
     /** @ngInject */
-    function ordersService() {
-
+    function ordersService(moment) {
+        var m_moment = moment;
         var service = {
             getOrders: getOrders,
             getOrder: getOrder,
@@ -30,6 +30,8 @@
                   carePeriodEnd: new Date(),
                   supplymentType: 'Komisch',
                   nextDelivery: new Date(),
+                  durationPrescriptionStart: m_moment(new Date()).format('L'),
+                  durationPrescriptionEnd: m_moment(new Date()).format('L'),
                   orderState : 1
               },
                {                  
@@ -44,6 +46,8 @@
                   carePeriod: '14 Tage',
                   supplymentType: '',
                   nextDelivery: new Date(),
+                   durationPrescriptionStart: m_moment(new Date()).format('L'),
+                  durationPrescriptionEnd: m_moment(new Date()).format('L'),
                   orderState : 0
               }
           ];

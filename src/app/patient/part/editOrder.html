@@ -1,6 +1,6 @@
 <div ng-controller="EditOrderController as edit">
     <!--<md-dialog ng-cloak>-->
-    <md-card layout-padding>
+    <md-card layout-padding>     
         <form>
             <!--<table>
                 <tr>
@@ -80,13 +80,8 @@
             <br />
             <br />
             <br />-->
-
-
-
-    
+            
             <div layout-gt-sm="row">
-
-
                 <div layout="column" flex-gt-sm="20">
                     <label style="font-size:10">Auftragsdatum</label>
                     <div class="md-inline-form">
@@ -108,8 +103,6 @@
                         </md-option>
                     </md-select>
                 </md-input-container>
-
-
             </div>
 
             <div layout="row" class="rowSpacer">
@@ -120,9 +113,8 @@
                         <span> &nbsp;bis</span>
                         <md-datepicker ng-model="edit.order.carePeriodEnd" md-placeholder="Versorgezeitraum bis"></md-datepicker>
                     </div>
-
                 </div>
-               
+
                 <div layout="column" flex-gt-sm="20">
                     <label>Rezept an Lieferant</label>
                     <div class="md-inline-form">
@@ -132,14 +124,14 @@
             </div>
 
             <div layout="row" class="rowSpacer">
-                <div layout="column" flex-gt-sm="20" >
+                <div layout="column" flex-gt-sm="20">
                     <label>Nächste Lieferung</label>
                     <div class="md-inline-form">
                         <md-datepicker ng-model="edit.order.deliveryDate" md-placeholder="Auftragsdatum"></md-datepicker>
                     </div>
                 </div>
-                <div layout="column" flex-gt-sm="20" >
-                    <md-input-container class="md-block" >
+                <div layout="column" flex-gt-sm="20">
+                    <md-input-container class="md-block">
                         <label>Rezept Status</label>
 
                         <md-select ng-model="edit.order.prescriptionStates">
@@ -157,22 +149,30 @@
                     </div>
                 </div>
             </div>
-            
+
             <div layout-gt-sm="row">
                 <div layout="column" flex-gt-sm="20" layout-align="end start">
                     <md-checkbox ng-model="vm.patient.hasPatientDeclarationSigned">Auftrag Erledigt</md-checkbox>
                 </div>
-                
+
                 <div layout="column" flex-gt-sm="40">
                     <label>Dauerverordnung </label>
-                    <span>{{edit.order.carePeriodStart}} bis {{edit.order.carePeriodEnd}}</span>
+                    <span>{{edit.order.durationPrescriptionStart}} bis {{edit.order.durationPrescriptionStart}}</span>
                 </div>
             </div>
 
+            <div layout-gt-sm="row">               
+                
+                <md-input-container class="md-block" flex="90">
+                    <label>Notiz</label>
+                    <textarea ng-model="edit.order.note" md-maxlength="150" rows="5" md-select-on-focus></textarea>                    
+                </md-input-container>
+                
+            </div>
 
 
+            <!-- Button leiste-->
             <md-divider class="rowSpacer" />
-
             <md-dialog-actions layout="row" layout-align="start center">
 
                 <md-button ng-click="edit.save()" style="margin-right:20px;">
